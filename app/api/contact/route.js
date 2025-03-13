@@ -26,8 +26,8 @@ export async function POST(req) {
       const response = await resend.emails.send({
         from: "no-reply@resend.dev",
         to: "fahmizainal9@gmail.com",
-        subject: `New contact form: ${subject}`,
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        subject: `Fahmi X ShadcnUI - New message from ${email} : ${subject}`,
+        text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`
       });
   
       console.log("📧 Email Sent Successfully:", response);
