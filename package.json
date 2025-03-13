@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:css": "tailwindcss build app/globals.css -o app/output.css"
+    "build:css": "tailwindcss -i app/globals.css -o app/output.css"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
