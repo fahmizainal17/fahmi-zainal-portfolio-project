@@ -76,7 +76,7 @@ export default function ContactPage() {
                 <Mail className="h-5 w-5 mr-3 mt-0.5 text-primary" />
                 <div>
                   <h3 className="font-medium">Email</h3>
-                  <p className="text-sm text-muted-foreground">contact@example.com</p>
+                  <p className="text-sm text-muted-foreground">fahmizainals9@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start">
