@@ -2,65 +2,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { 
+  featuredAchievements, 
+  featuredProjects, 
+  certificationCategories, 
+  experiences, 
+  education 
+} from '@/lib/data';
 
-export default function Home() {
-  // Sample data (you can move this to lib/data.js later)
-  const featuredAchievements = [
-    {
-      id: 1,
-      title: "First Place in AI Tinkerers Hackathon",
-      date: "November 2024",
-      description: "Led a team to secure first place in the LLM-as-Judge problem statement, developing an innovative solution using fine-tuning approaches on a small model to create an LLM capable of acting as a judge.",
-      image: "/images/achievements/llm-as-judge-win.png",
-      link: "https://github.com/wanadzhar913/aitinkerers-hackathon-supa-team-werecooked"
-    },
-    {
-      id: 2,
-      title: "Data Processing Automation Tool",
-      date: "February 2024",
-      description: "Led the development of a comprehensive in-house tool that streamlined data processing workflow for survey data, reducing preparation and reporting time from 8 hours to just 30 minutes.",
-      image: "/images/achievements/survey-tools.png",
-      link: "https://github.com/fahmizainal17/Streamlit_IVR_Data_Cleaning_Automation_Project"
-    },
-    {
-      id: 3,
-      title: "Ad Scoring Model for Marketing Analytics",
-      date: "August 2024",
-      description: "Developed predictive models analyzing consumer behaviors and campaign performance, contributing to a 50% increase in overall revenue through optimized marketing strategies.",
-      image: "/images/achievements/roas-dashboard.png",
-      link: "https://github.com/fahmizainal17/FastAPI_ROAS_Dashboard_Project"
-    }
-  ];
-  
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "Car Price Prediction Model",
-      date: "August 2024 - September 2024",
-      description: "Created a robust machine learning model for predicting car prices using features like make, model, year, and mileage with extensive data preprocessing and hyperparameter tuning.",
-      image: "/images/projects/car-price-prediction.jpg",
-      skills: ["Machine Learning", "Python", "Feature Engineering"],
-      link: "https://github.com/fahmizainal17/Car_Price_Prediction_Project"
-    },
-    {
-      id: 2,
-      title: "ROAS Dashboard API Endpoints",
-      date: "May 2024 - August 2024",
-      description: "Developed API endpoints to support a Return on Ad Spend Dashboard within Databricks, enabling marketers to access real-time insights and optimize campaigns.",
-      image: "/images/projects/roas-dashboard-endpoints.png",
-      skills: ["API Development", "Databricks", "Digital Marketing"],
-      link: "https://github.com/fahmizainal17/FastAPI_ROAS_Dashboard_Project"
-    },
-    {
-      id: 3,
-      title: "Digital Marketing Campaign Analysis",
-      date: "June 2024 - August 2024",
-      description: "Analyzed digital marketing ad sets through exploratory data analysis and machine learning, developing a scoring mechanism to rank effectiveness.",
-      image: "/images/projects/ad-metrics.png",
-      skills: ["Data Analysis", "Machine Learning", "Visualization"],
-      link: "https://github.com/fahmizainal17/Digital_Marketing_Campaign_Ad_Set_EDA_and_Ad_Scoring"
-    }
-  ];
+export default function HomePage() {
+  const achievements = featuredAchievements;
+  const projects = featuredProjects;
 
   return (
     <div className="space-y-16 pb-20">
@@ -70,7 +22,7 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-20xl font-bold  sm:text-5xl xl:text-8xl">
+                <h1 className="text-20xl font-bold sm:text-5xl xl:text-8xl">
                   Fahmi Zainal
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -175,7 +127,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
-              {featuredAchievements.map((achievement) => (
+              {achievements.map((achievement) => (
                 <Card key={achievement.id} className="flex flex-col h-full">
                   <CardHeader>
                     <div className="flex items-center justify-between">
@@ -231,7 +183,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
-              {featuredProjects.map((project) => (
+              {projects.map((project) => (
                 <Card key={project.id} className="flex flex-col h-full">
                   <CardHeader>
                     <div className="flex items-center justify-between">
@@ -274,77 +226,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Overview Section */}
-      <section className="py-8 bg-muted/30">
+      {/* Certifications Section */}
+      <section className="py-8 bg-muted/10">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-start space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight mb-6 flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layers mr-2">
-                <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
-                <path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2.6 12.5"/>
-                <path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2.6 17.5"/>
-              </svg>
-              Skills Overview
-            </h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 w-full">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Data Science & Analytics</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-1">
-                    {["Python", "SQL", "R", "Machine Learning", "Deep Learning", "Statistical Analysis", "Data Mining", "Data Visualization"].map((skill, index) => (
-                      <span key={index} className="skill-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Machine Learning & AI</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-1">
-                    {["TensorFlow", "PyTorch", "NLP", "Computer Vision", "Model Deployment", "Hyperparameter Tuning", "Algorithm Development"].map((skill, index) => (
-                      <span key={index} className="skill-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Data Engineering</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-1">
-                    {["ETL Processes", "API Development", "Database Management", "Big Data", "Cloud Platforms", "Docker", "AWS", "Azure"].map((skill, index) => (
-                      <span key={index} className="skill-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Business Intelligence</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-1">
-                    {["PowerBI", "Tableau", "Data Interpretation", "Strategic Planning", "Survey Design", "Market Research", "Data Storytelling"].map((skill, index) => (
-                      <span key={index} className="skill-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+          <h2 className="text-3xl font-bold tracking-tight mb-6">Certifications</h2>
+          {certificationCategories.map((category) => (
+            <div key={category.name} className="mb-8">
+              <h3 className="text-2xl font-semibold mb-4">{category.name}</h3>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {category.certifications.map((cert) => (
+                  <Card key={cert.title} className="flex flex-col">
+                    <CardHeader>
+                      <CardTitle>{cert.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm">{cert.date}</p>
+                      <p className="text-sm">{cert.organization}</p>
+                      <div className="relative h-40 w-full mt-2">
+                        <Image 
+                          src={cert.image} 
+                          alt={cert.title} 
+                          fill 
+                          className="object-cover rounded"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="py-8">
+        <div className="container px-4 md:px-6">
+          <h2 className="text-3xl font-bold tracking-tight mb-6">Experience</h2>
+          {experiences.map((exp) => (
+            <div key={exp.company} className="mb-8">
+              <div className="flex items-center gap-4 mb-4">
+                <Image src={exp.logo} alt={exp.company} width={50} height={50} className="object-contain" />
+                <h3 className="text-2xl font-semibold">{exp.company}</h3>
+              </div>
+              {exp.positions.map((pos, index) => (
+                <div key={index} className="mb-4 border-l-2 pl-4">
+                  <h4 className="text-xl font-bold">{pos.position}</h4>
+                  <p className="text-sm text-muted-foreground">{pos.duration} | {pos.location} | {pos.type}</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1">
+                    {pos.description.map((desc, i) => (
+                      <li key={i} className="text-sm">{desc}</li>
+                    ))}
+                  </ul>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {pos.skills.map((skill, i) => (
+                      <span key={i} className="skill-badge">{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-8 bg-muted/10">
+        <div className="container px-4 md:px-6">
+          <h2 className="text-3xl font-bold tracking-tight mb-6">Education</h2>
+          {education.map((edu) => (
+            <div key={edu.institution} className="mb-8 flex items-start gap-4">
+              <Image src={edu.logo} alt={edu.institution} width={60} height={60} className="object-contain" />
+              <div>
+                <h3 className="text-2xl font-semibold">{edu.institution}</h3>
+                <p className="text-lg font-medium">{edu.degree}</p>
+                <p className="text-sm text-muted-foreground">{edu.duration} | {edu.location}</p>
+                <ul className="list-disc list-inside mt-2 space-y-1">
+                  {edu.achievements.map((ach, i) => (
+                    <li key={i} className="text-sm">{ach}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
